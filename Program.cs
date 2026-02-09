@@ -5,9 +5,15 @@ Console.WriteLine("Permainan Dimulai\n");
 wizardA.ShowsStats();
 wizardB.ShowsStats();
 
-wizardA.Attack(wizardB);
-wizardB.Attack(wizardA);
-wizardA.Attack(wizardB);
+string pilihan;
+
+while (wizardA.Energi > 0 && wizardB.Energi > 0)
+{
+    Console.WriteLine($"1. {wizardA.Name} menyerang {wizardB.Name}");
+    Console.WriteLine($"2. {wizardB.Name} menyerang {wizardA.Name}");
+    Console.WriteLine($"3. {wizardA.Name} melakukan heal");
+    Console.WriteLine($"4. {wizardB.Name} melakukan heal");
+}
 
 Console.WriteLine("Permainan Berakhir\n");
 
