@@ -19,7 +19,7 @@ public class wizard
     public int Damage;
 
     //deklarasi constructor
-    public wizard (string name, int damage)
+    public wizard(string name, int damage)
     {
         Name = name;
         Energi = 100;
@@ -38,5 +38,19 @@ public class wizard
         wizardLawanobj.Energi -= Damage;
         Console.WriteLine($" {Name} menyerang {wizardLawanobj.Name} ");
         Console.WriteLine($"Sisa energi {wizardLawanobj.Name} adalah {wizardLawanobj.Energi}");
+    }
+    public void Heal()
+    {
+        Energi += 5;
+
+        if (Energi <= 100)
+        {
+            Console.WriteLine($"{Name} melakukan heal energi meningkat menjadi {Energi}");
+        }
+        else
+        {
+            Energi = 100;
+            Console.WriteLine("Sudah mencapai energi maksimum");
+        }
     }
 }
