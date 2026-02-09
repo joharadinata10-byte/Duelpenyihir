@@ -5,17 +5,59 @@ Console.WriteLine("Permainan Dimulai\n");
 wizardA.ShowsStats();
 wizardB.ShowsStats();
 
+//wizardA.Attack(wizardB);
+//wizardB.Attack(wizardA);
+//wizardB.Heal();
+//wizardA.Attack(wizardB);
+
 string pilihan;
 
 while (wizardA.Energi > 0 && wizardB.Energi > 0)
 {
+    Console.WriteLine("Pilih salah satu penyihir: ");
     Console.WriteLine($"1. {wizardA.Name} menyerang {wizardB.Name}");
     Console.WriteLine($"2. {wizardB.Name} menyerang {wizardA.Name}");
     Console.WriteLine($"3. {wizardA.Name} melakukan heal");
     Console.WriteLine($"4. {wizardB.Name} melakukan heal");
+
+    Console.WriteLine("\n Masukkan pilihan anda(1/2/3/4): ");
+    pilihan = Console.ReadLine();
+
+    if (pilihan == "1")
+    {
+        wizardA.Attack(wizardB);
+    }
+    else if (pilihan == "2")
+    {
+        wizardB.Attack(wizardA);
+    }
+    else if (pilihan == "3")
+    {
+        wizardA.Heal();
+    }
+    else if (pilihan == "4")
+    {
+        wizardB.Heal();
+    }
+    else
+    {
+        Console.WriteLine("Pilihan anda ngawur");
+    }
 }
 
 Console.WriteLine("Permainan Berakhir\n");
+Console.WriteLine("Statistik Akhir");
+wizardA.ShowsStats();
+wizardB.ShowsStats();
+
+if (wizardA.Energi > wizardB.Energi)
+{
+    Console.WriteLine($"{wizardA.Name} memenangkan duel");
+}
+else
+{
+    Console.WriteLine($"{wizardB.Name} memenangkan duel");
+}
 
 public class wizard
 {
